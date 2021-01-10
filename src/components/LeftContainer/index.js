@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from './Components.style'
+import { Container,Label, Heading} from '../Components.style'
 
 
 
@@ -7,7 +7,11 @@ import { Container } from './Components.style'
 
 export default function LeftContainer() {
     return (
-        <Container>n</Container>
-         
-    )
+      <Container>
+        <Label size="1.5rem">
+          <Heading >Hello,</Heading>
+          Emerald
+        </Label>
+      </Container>
+    );
 }

@@ -1,8 +1,13 @@
 import React from 'react'
-import {Container} from './Components'
+import {RightContainer,Wrapper,Label,Heading} from '../Components.style'
 
-export default function RightContainer() {
+export default function Container() {
     return (
-        <Container/>
+        <RightContainer>
+            <Wrapper>
+                <Label>Female Users</Label>
+               
+            </Wrapper>
+        </RightContainer>
     )
 }

@@ -1,18 +1,11 @@
 import './App.css';
-
-import Container from './MainContainer/index'
-import LeftContainer from './components/LeftContainer/index'
-
-
+import Dashboard from './components/MainContainer/index'
 
 function App() {
   return (
-   
-    <Container>
-      
-    </Container>
-     
-  
+    <div className="App">
+    <Dashboard/>
+    </div>
   );
 }
 
