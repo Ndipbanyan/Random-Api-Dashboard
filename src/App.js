@@ -1,10 +1,18 @@
 import './App.css';
 
+import Container from './MainContainer/index'
+import LeftContainer from './components/LeftContainer/index'
+
+
+
 function App() {
   return (
-    <div className="App">
-     <h1>Web Assessment</h1>
-    </div>
+   
+    <Container>
+      
+    </Container>
+     
+  
   );
 }
 
