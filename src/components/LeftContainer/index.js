@@ -17,42 +17,50 @@ export default function LeftContainer() {
             <Heading color="#fff">Hello,</Heading>
             Emerald
           </Label>
-          <Paragraph color="#fff">
+          <Paragraph color="#fff" >
             Welcome to your dashboard, kindly sort through the user base
           </Paragraph>
           <InputFieldWrapper primary>
             <RiSearchLine />
             <InputField placeholder="Find a user" primary />
           </InputFieldWrapper>
-          <Label size=".9rem" space="3rem" color="#fff">
+          <Label size=".9rem" space="3rem" color="#fff" opacity="0.7">
             Show Users
           </Label>
-          <Container display="flex" width="10rem" height="10rem" >
-            <Container
-              width="6rem"
-              height="4rem"
-              
-            >
-              <Buttons size="4rem" color="#F935A9" font="1.8rem">
+          <Container display="flex" width="10rem" height="10rem">
+            <Container width="7rem" height="4rem">
+              <Buttons
+                size="5rem"
+                color="#F935A9"
+                font="2.5rem"
+                className="users-button"
+              >
                 <FaUsers />
               </Buttons>
-              <Paragraph color="#fff" weight="400">
+              <Paragraph color="#fff" weight="400" pad=".5rem" >
                 All Users
               </Paragraph>
             </Container>
-            <Container
-              width="6rem"
-              heght="4rem"
-            >
-              <Buttons size="4rem" color="#30BBB5" font="1.8rem">
+            <Container width="7rem" height="4rem">
+              <Buttons
+                size="5rem"
+                color="#30BBB5"
+                font="2.5rem"
+                className="users-button"
+              >
                 <FaMale />
               </Buttons>
-              <Paragraph color="#fff" weight="400">
+              <Paragraph color="#fff" weight="400" pad=".4rem">
                 Male Users
               </Paragraph>
             </Container>
-            <Container width="6rem" height="4rem" >
-              <Buttons size="4rem" color="#7946C1" font="1.8rem">
+            <Container width="7rem" height="4rem">
+              <Buttons
+                size="5rem"
+                color="#7946C1"
+                font="2.5rem"
+                className="users-button"
+              >
                 <FaMale />
               </Buttons>
               <Paragraph color="#fff" weight="400">
