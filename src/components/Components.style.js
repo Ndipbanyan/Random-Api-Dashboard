@@ -103,12 +103,20 @@ export const InputFieldWrapper = styled.div.attrs((props) => ({
   background: ${(props) => props.background};
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  margin-top: ${(props) => (props.primary ? "2rem" : "1rem")};
+  margin-top: ${(props) => (props.primary ? "2rem" : "0rem")};
   font-size: ${(props) => (props.primary ? "1.2rem" : "1rem")};
   border-radius: ${(props) => (props.primary ? "1rem" : "2.5rem")};
   color: ${(props) => props.color};
-  
 `;
+
+export const Download =styled(InputFieldWrapper)`
+background:#7946C1;
+position:absolute;
+bottom:3rem;
+width:10rem;
+height:2rem;
+
+`
 export const InputField = styled.input`
   margin-left: 1rem;
   height: ${(props) => (props.primary ? "3rem" : "1.6rem")};
@@ -151,11 +159,10 @@ export const ProfileCard = styled.div`
   display:flex;
   align-items:center;
   justify-content:space-around;
-  /* position:relative; */
   width: 100%;
   overflow:none;
   height:20%;
-  /* padding:0rem 1rem 0rem rem; */
+  margin:1rem 0rem 2rem 0rem;
 `;
 export const NextButton = styled.button`
   width: ${(props) => (props.primary ? "3rem" : "50px")};
@@ -166,21 +173,32 @@ export const NextButton = styled.button`
   opacity: 1;
   border: none;
   margin-top:10%;
-  /* outline:none; */
+  outline:none;
   color: #fff;
   font-size: 1.3rem;
   align-self: center;
-  /* position:relative; */
-  /* bottom: 1rem; */
-  /* left:88%; */
+  &.users-button:hover {
+    transform: scale(1.15);
+    transition: 0.5s;
+  }
 `;
+export const Pages=styled(NextButton)`
+position:absolute;
+bottom:3rem;
+right:${(props)=>(props.primary? "8.5rem" :"6rem")};
+width:2rem;
+height:2rem;
+border-radius: 5px;
+background: ${(props)=>(props.primary? "#E2E2EA":"#262A41")};
+color:${(props)=>(props.primary? "#000":"fff")};
+box-shadow:none;
+font-size:.7rem;
+`
 export const ImageHolder = styled.div`
   border: 8px solid #75d6d1;
   border-radius:50%;
   width:4rem;
   height:4rem;
   opacity: 1;
-  /* margin-top:20rem; */
-  /* margin:20px 10px ; */
 `;
 

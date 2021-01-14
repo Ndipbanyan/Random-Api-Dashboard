@@ -30,7 +30,7 @@ export default function Card() {
           </Label>
         </Container>
 
-        <NextButton primary>
+        <NextButton className="users-button" primary>
           <FaArrowRight />
         </NextButton>
       </ProfileCard>
