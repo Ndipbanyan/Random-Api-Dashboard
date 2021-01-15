@@ -162,8 +162,8 @@ export const ProfileCard = styled.div`
   justify-content:space-around;
   width: 100%;
   overflow:none;
-  height:20%;
-  margin:1rem 0rem 2rem 0rem;
+  height:9rem;
+  margin:1rem 0rem 1.5rem 0rem;
 `;
 export const NextButton = styled.button`
   width: ${(props) => (props.primary ? "3rem" : "50px")};
@@ -197,7 +197,7 @@ color:${(props)=>(props.primary? "#000":"fff")};
 box-shadow:none;
 font-size:.7rem;
 `
-export const ImageHolder = styled.div`
+export const ImageHolder = styled.img`
   border: 8px solid #75d6d1;
   border-radius:50%;
   width:4rem;

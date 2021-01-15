@@ -14,15 +14,17 @@ import { IoIosCloudDownload } from "react-icons/io";
 import { FaLessThan,FaGreaterThan} from "react-icons/fa";
 import Card from './Card/index'
 
-const url = "https://randomuser.me/api/?results=50";
+const url = "https://randomuser.me/api/?results=30";
 
 export default function Container() {
   const [users, setUsers] = useState([])
   const fetchUsers = async () => {
     try {
       const response = await fetch(url);
-      const users = await response.json();
-      console.log(users);
+      const data = await response.json();
+      const result=data.results
+      setUsers(result)
+      console.log(result);
     } catch(error){
       console.log(error)
     }
@@ -67,7 +69,7 @@ export default function Container() {
                 </div>
           </div>
 
-          <Card/>
+          <Card key={users.name} users={users} />
 
           <Download><IoIosCloudDownload /><Paragraph color="fff" size=".8rem" opacity="1" weight="600" space=".8rem">Download results</Paragraph></Download>
           <Pages primary ><FaLessThan/></Pages>
