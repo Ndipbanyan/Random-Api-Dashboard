@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import {
   RightContainer,
   Wrapper,
@@ -14,7 +14,23 @@ import { IoIosCloudDownload } from "react-icons/io";
 import { FaLessThan,FaGreaterThan} from "react-icons/fa";
 import Card from './Card/index'
 
+const url = "https://randomuser.me/api/?results=50";
+
 export default function Container() {
+  const [users, setUsers] = useState([])
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch(url);
+      const users = await response.json();
+      console.log(users);
+    } catch(error){
+      console.log(error)
+    }
+    
+  }
+  useEffect(() => {
+    fetchUsers()
+  }, [])
     return (
       <RightContainer>
         <Wrapper>
@@ -52,8 +68,7 @@ export default function Container() {
           </div>
 
           <Card/>
-          <Card/>
-          <Card/>
+
           <Download><IoIosCloudDownload /><Paragraph color="fff" size=".8rem" opacity="1" weight="600" space=".8rem">Download results</Paragraph></Download>
           <Pages primary ><FaLessThan/></Pages>
           <Pages ><FaGreaterThan/></Pages>

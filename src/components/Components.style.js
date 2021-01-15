@@ -143,7 +143,8 @@ export const Buttons = styled.button.attrs((props) => ({
   border: none;
   color: #fff;
   text-align: center;
-  &.users-button:hover {
+  cursor:pointer;
+  &.users-button:active {
     transform: scale(1.15);
     transition: 0.5s;
   }
@@ -172,15 +173,17 @@ export const NextButton = styled.button`
   border-radius: 13px;
   opacity: 1;
   border: none;
-  margin-top:10%;
-  outline:none;
+  margin-top: 10%;
+  outline: none;
   color: #fff;
   font-size: 1.3rem;
   align-self: center;
-  &.users-button:hover {
+  cursor:pointer;
+  &.users-button:active {
     transform: scale(1.15);
     transition: 0.5s;
   }
+  
 `;
 export const Pages=styled(NextButton)`
 position:absolute;
