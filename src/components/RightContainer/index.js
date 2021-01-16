@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   RightContainer,
   Wrapper,
@@ -37,6 +37,11 @@ export default function Container() {
   useEffect(() => {
     fetchUsers()
   }, [])
+  // Get posts on each page
+  const indexofLastUser = currentPage * usersPerPage 
+  const indexofFirstUser = indexofLastUser - currentPage
+  const currentUser = users.slice(indexofFirstUser, indexofLastUser);
+  console.log(currentUser);
     return (
       <RightContainer>
         <Wrapper>

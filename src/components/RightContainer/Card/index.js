@@ -1,12 +1,12 @@
 import React from 'react'
-import { ProfileCard, ImageHolder,Container,Label,Paragraph, NextButton } from '../../Components.style'
+import { ProfileCard, ImageHolder,Container,Label,Paragraph, NextButton,Loader} from '../../Components.style'
 import { FaArrowRight } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiPhoneCall } from "react-icons/bi";
 
 export default function Card({ users, loading }) {
   if (loading) {
-    return <div style={{margin:"10rem 13rem "}}>Loading...</div>
+    return <div style={{margin:"10rem 13rem "}}><Loader/></div>
   }
   return (
     <div>
