@@ -4,9 +4,13 @@ import { FaArrowRight } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiPhoneCall } from "react-icons/bi";
 
-export default function Card({ users }) {
+export default function Card({ users, loading }) {
+  if (loading) {
+    return <div style={{margin:"10rem 13rem "}}>Loading...</div>
+  }
   return (
     <div>
+      
       {users.map((user) =>
         {
           const { name, location, email, phone, picture } = user;

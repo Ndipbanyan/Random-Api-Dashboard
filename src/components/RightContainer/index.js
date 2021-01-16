@@ -18,13 +18,17 @@ const url = "https://randomuser.me/api/?results=30";
 
 export default function Container() {
   const [users, setUsers] = useState([])
-  const fetchUsers = async () => {
+  const[loading, setLoading]=useState(true)
+  const [currentPage, setCurrentPage] = useState(1)
+  const[usersPerPage, setusersPerPage]=useState(3)
+  const   fetchUsers = async () => {
     try {
       const response = await fetch(url);
+      setLoading(false)
       const data = await response.json();
-      const result=data.results
-      setUsers(result)
-      console.log(result);
+      const {results}=data
+      setUsers(results)
+      console.log(results);
     } catch(error){
       console.log(error)
     }
@@ -69,7 +73,7 @@ export default function Container() {
                 </div>
           </div>
 
-          <Card key={users.name} users={users} />
+          <Card key={users.name} users={users} loading={loading}/>
 
           <Download><IoIosCloudDownload /><Paragraph color="fff" size=".8rem" opacity="1" weight="600" space=".8rem">Download results</Paragraph></Download>
           <Pages primary ><FaLessThan/></Pages>
