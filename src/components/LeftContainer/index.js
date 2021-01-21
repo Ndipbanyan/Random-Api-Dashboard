@@ -64,7 +64,7 @@ export default function LeftContainer() {
                 font="2.5rem"
                 className="users-button"
               >
-                <FaMale />
+                <FaFemale />
               </Buttons>
               <Paragraph color="#fff" weight="400">
                 Female Users

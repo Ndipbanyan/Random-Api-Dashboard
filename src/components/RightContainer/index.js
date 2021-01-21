@@ -14,13 +14,15 @@ import { IoIosCloudDownload } from "react-icons/io";
 import { FaLessThan,FaGreaterThan} from "react-icons/fa";
 import Card from './Card/index'
 
-const url = "https://randomuser.me/api/?results=30";
+const url = `https://randomuser.me/api/?results=30`;
 
 export default function Container() {
   const [users, setUsers] = useState([])
-  const[loading, setLoading]=useState(true)
-  const [currentPage, setCurrentPage] = useState(1)
-  const[usersPerPage, setusersPerPage]=useState(3)
+  const [loading, setLoading] = useState(true)
+  const [startIndex, setStartIndex] = useState(0)
+  const [endIndex, setEndIndex] = useState(3)
+  const [currentUsers, setCurrentUsers]=useState([])
+  
   const   fetchUsers = async () => {
     try {
       const response = await fetch(url);
@@ -28,26 +30,43 @@ export default function Container() {
       const data = await response.json();
       const {results}=data
       setUsers(results)
-      console.log(results);
+      setCurrentUsers(results.slice(startIndex, endIndex));
+      // console.log(users);
+      // console.log(currentUsers);
     } catch(error){
       console.log(error)
     }
     
   }
+  
+  const next = () => {
+    // setStartIndex(endIndex);
+    // setEndIndex(startIndex + 3);
+    // setCurrentPage(currentPage + 1);
+    // setCurrentUsers(users.slice(startIndex, endIndex));
+  };
   useEffect(() => {
     fetchUsers()
   }, [])
-  // Get posts on each page
-  const indexofLastUser = currentPage * usersPerPage 
-  const indexofFirstUser = indexofLastUser - currentPage
-  const currentUser = users.slice(indexofFirstUser, indexofLastUser);
-  console.log(currentUser);
+
+  
+  
+  console.log(users);
+  // console.log(currentUsers);
+    
     return (
       <RightContainer>
         <Wrapper>
           <Label>Female Users</Label>
           <Paragraph opacity="1">Filter by</Paragraph>
-          <div style={{ display: "flex", alignItems: "center", justifyContent:"space-between", marginBottom:"1.5rem"}}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: "1.5rem",
+            }}
+          >
             <InputFieldWrapper
               width="15rem"
               height="2.3rem"
@@ -63,26 +82,46 @@ export default function Container() {
               background="#0000000D"
               color="#00000029"
             ></InputFieldWrapper>
-                <div
-                style={{ display: "flex", alignItems: "center", width: "8rem",}}
-                >
-                <InputFieldWrapper
-                    width=".8rem"
-                    height="1rem"
-                    background="#30BBB5"
-                    color="#00000029"
-                ></InputFieldWrapper>
-                <Paragraph size=".8rem" weight="400" space=".5rem">
-                    Show country
-                </Paragraph>
-                </div>
+            <div
+              style={{ display: "flex", alignItems: "center", width: "8rem" }}
+            >
+              <InputFieldWrapper
+                width=".8rem"
+                height="1rem"
+                background="#30BBB5"
+                color="#00000029"
+              ></InputFieldWrapper>
+              <Paragraph size=".8rem" weight="400" space=".5rem">
+                Show country
+              </Paragraph>
+            </div>
           </div>
+            {console.log(currentUsers)}
+          <Card
+            key={users.name}
+            users={currentUsers}
+            loading={loading}
+            currentUsers={currentUsers}
+          />
 
-          <Card key={users.name} users={users} loading={loading}/>
-
-          <Download><IoIosCloudDownload /><Paragraph color="fff" size=".8rem" opacity="1" weight="600" space=".8rem">Download results</Paragraph></Download>
-          <Pages primary ><FaLessThan/></Pages>
-          <Pages ><FaGreaterThan/></Pages>
+          <Download>
+            <IoIosCloudDownload />
+            <Paragraph
+              color="fff"
+              size=".8rem"
+              opacity="1"
+              weight="600"
+              space=".8rem"
+            >
+              Download results
+            </Paragraph>
+          </Download>
+          <Pages primary>
+            <FaLessThan />
+          </Pages>
+          <Pages onClick={next}>
+            <FaGreaterThan />
+          </Pages>
         </Wrapper>
       </RightContainer>
     );
