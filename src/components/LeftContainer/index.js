@@ -1,6 +1,7 @@
 import React from 'react'
 import { 
     Container, LeftWrapper, Label, Heading, Paragraph,InputFieldWrapper,InputField,Buttons } from '../Components.style'
+import Users from "../RightContainer/index"
 import { RiSearchLine } from 'react-icons/ri'
 import { FaUsers, FaMale, FaFemale } from "react-icons/fa";
 
@@ -10,6 +11,7 @@ import { FaUsers, FaMale, FaFemale } from "react-icons/fa";
 
 
 export default function LeftContainer() {
+  const {fetchUsers}=Users
     return (
       <Container>
         <LeftWrapper>
@@ -34,6 +36,7 @@ export default function LeftContainer() {
                 color="#F935A9"
                 font="2.5rem"
                 className="users-button"
+                onClick={fetchUsers}
               >
                 <FaUsers />
               </Buttons>
@@ -61,7 +64,7 @@ export default function LeftContainer() {
                 font="2.5rem"
                 className="users-button"
               >
-                <FaMale />
+                <FaFemale />
               </Buttons>
               <Paragraph color="#fff" weight="400">
                 Female Users
