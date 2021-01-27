@@ -48,7 +48,7 @@ export default function Card({ users, loading, currentUsers }) {
               </Label>
             </Container>
 
-            <NextButton className="users-button" primary onClick={<Profile/>}>
+            <NextButton className="users-button" primary >
               <FaArrowRight />
             </NextButton>
           </ProfileCard>
