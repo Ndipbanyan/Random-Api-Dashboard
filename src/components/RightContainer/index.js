@@ -19,8 +19,8 @@ const url = `https://randomuser.me/api/?results=30`;
 export default function Container() {
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(true)
-  const [startIndex, setStartIndex] = useState(0)
-  const [endIndex, setEndIndex] = useState(3)
+  const [startIndex] = useState(0)
+  const [endIndex] = useState(3)
   const [currentUsers, setCurrentUsers]=useState([])
   
   const   fetchUsers = async () => {
