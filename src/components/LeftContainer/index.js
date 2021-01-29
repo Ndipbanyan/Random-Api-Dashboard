@@ -1,7 +1,7 @@
 import React from 'react'
 import { 
     Container, LeftWrapper, Label, Heading, Paragraph,InputFieldWrapper,InputField,Buttons } from '../Components.style'
-import Users from "../RightContainer/index"
+// import {fetchData} from "../RightContainer/index"
 import { RiSearchLine } from 'react-icons/ri'
 import { FaUsers, FaMale, FaFemale } from "react-icons/fa";
 
@@ -10,8 +10,8 @@ import { FaUsers, FaMale, FaFemale } from "react-icons/fa";
 
 
 
-export default function LeftContainer() {
-  const {fetchUsers}=Users
+export default function LeftContainer({setTitle,setQuery}) {
+  // const {fetchData}=users
     return (
       <Container>
         <LeftWrapper>
@@ -19,7 +19,7 @@ export default function LeftContainer() {
             <Heading color="#fff">Hello,</Heading>
             Emerald
           </Label>
-          <Paragraph color="#fff" >
+          <Paragraph color="#fff">
             Welcome to your dashboard, kindly sort through the user base
           </Paragraph>
           <InputFieldWrapper primary>
@@ -36,11 +36,14 @@ export default function LeftContainer() {
                 color="#F935A9"
                 font="2.5rem"
                 className="users-button"
-                onClick={fetchUsers}
+                onClick={() => {
+                  setQuery("");
+                  setTitle("All Users");
+                }}
               >
                 <FaUsers />
               </Buttons>
-              <Paragraph color="#fff" weight="400" pad=".5rem" >
+              <Paragraph color="#fff" weight="400" pad=".5rem">
                 All Users
               </Paragraph>
             </Container>
@@ -50,6 +53,10 @@ export default function LeftContainer() {
                 color="#30BBB5"
                 font="2.5rem"
                 className="users-button"
+                onClick={() => {
+                  setQuery("male");
+                  setTitle("Male Users");
+                }}
               >
                 <FaMale />
               </Buttons>
@@ -63,6 +70,10 @@ export default function LeftContainer() {
                 color="#7946C1"
                 font="2.5rem"
                 className="users-button"
+                onClick={() => {
+                  setQuery("female");
+                  setTitle("Female Users");
+                }}
               >
                 <FaFemale />
               </Buttons>

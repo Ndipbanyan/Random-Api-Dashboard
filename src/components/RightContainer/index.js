@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   RightContainer,
   Wrapper,
@@ -14,70 +14,15 @@ import { IoIosCloudDownload } from "react-icons/io";
 import { FaLessThan, FaGreaterThan } from "react-icons/fa";
 import Card from "./Card/index";
 
-const url = `https://randomuser.me/api/?results=30`;
 
-export default function Container() {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [startIndex,setStartIndex] = useState(0);
-  const [endIndex, setEndIndex] = useState(3);
-  const [currentUsers, setCurrentUsers] = useState([]);
-  const[nextButton, setNextButton]=useState(true)
-  const[prevButton, setPrevButton]=useState(false)
 
+export  default function Right({loading,currentUsers,previous,prevButton, nextButton, next,title}) {
  
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        
-       const {results} =data
-        setUsers(results);
-        setCurrentUsers(results.slice(startIndex, endIndex));
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-  const next = () => {
-   setPrevButton(true)
-   if (endIndex === 30) {
-     setNextButton(false);
-     setStartIndex(startIndex-3);
-     setEndIndex(endIndex-3);
-   } else {
-     setStartIndex(startIndex + 3);
-     setEndIndex(endIndex + 3);
-   }
-   setCurrentUsers(users.slice(startIndex, endIndex));
-   setLoading(false);
-   console.log(startIndex);
-   console.log(endIndex);
-
-   console.log(currentUsers);
- };
-  const previous = () => {
-   setNextButton(true);
-   if (startIndex === 0) {
-     setStartIndex(startIndex+3);
-     setEndIndex(endIndex+3);
-     setPrevButton(false);
-   } else {
-     setStartIndex(startIndex - 3);
-     setEndIndex(endIndex - 3);
-     
-   }
-   setCurrentUsers(users.slice(startIndex, endIndex));
-   setLoading(false);
-   console.log(startIndex);
-   console.log(endIndex);
- };
 
   return (
     <RightContainer>
       <Wrapper>
-        <Label>Female Users</Label>
+        <Label>{title}</Label>
         <Paragraph opacity="1">Filter by</Paragraph>
         <div
           style={{
@@ -117,7 +62,6 @@ export default function Container() {
 
         {}
         <Card
-          key={users.name}
           users={currentUsers}
           loading={loading}
           currentUsers={currentUsers}
@@ -150,6 +94,6 @@ export default function Container() {
           <FaGreaterThan />
         </Pages>
       </Wrapper>
-    </RightContainer>
+    </RightContainer >
   );
 }
