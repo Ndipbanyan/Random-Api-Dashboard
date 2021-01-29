@@ -67,6 +67,7 @@ export default function Dashboard() {
             <Left
             setTitle={setTitle}
             setQuery={setQuery}
+            setUsers={setUsers}
             /> 
             <Right
             loading={loading}

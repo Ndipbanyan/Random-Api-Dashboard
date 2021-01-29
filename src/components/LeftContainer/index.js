@@ -10,7 +10,7 @@ import { FaUsers, FaMale, FaFemale } from "react-icons/fa";
 
 
 
-export default function LeftContainer({setTitle,setQuery}) {
+export default function LeftContainer({setTitle,setQuery,setUsers}) {
   // const {fetchData}=users
     return (
       <Container>
@@ -37,6 +37,7 @@ export default function LeftContainer({setTitle,setQuery}) {
                 font="2.5rem"
                 className="users-button"
                 onClick={() => {
+                  
                   setQuery("");
                   setTitle("All Users");
                 }}
@@ -54,6 +55,7 @@ export default function LeftContainer({setTitle,setQuery}) {
                 font="2.5rem"
                 className="users-button"
                 onClick={() => {
+                  setUsers([]);
                   setQuery("male");
                   setTitle("Male Users");
                 }}
@@ -71,6 +73,7 @@ export default function LeftContainer({setTitle,setQuery}) {
                 font="2.5rem"
                 className="users-button"
                 onClick={() => {
+                  setUsers([]);
                   setQuery("female");
                   setTitle("Female Users");
                 }}
