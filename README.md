@@ -1,2 +1,12 @@
-This project was designed using React to consume the https://randomuser.me/  Api.
-Link to the hosted project https://random-api-dashboard.vercel.app/
+
+Users Dashboard
+[Link to deployed site](https://random-api-dashboard.vercel.app/)
+
+Installation
+yarn install
+yarn  start
+Description
+This is a dashboard for generating random users from the random user api
+
+Implementation
+This project was implemented using React, Javascript and Styled Cmmponent
